@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataAccess.Abstract
+namespace Business.Abstract
 {
-    public interface ICategoryDal:IEntityRepository<Category>
+    public interface ICustomerService
     {
-        
+        List<Customer> GetAll();
     }
 }
