@@ -4,7 +4,7 @@ using DataAccess.ConCrete.InMemory;
 using System;
 
 namespace ConsoleUI
-{//GitGüncel
+{//GitGüncel yenii
     //soyutlar Absrack = bağımlılıklar minimize edilecek ,  somutlar Concrete
     class Program
     {
