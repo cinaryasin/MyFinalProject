@@ -21,5 +21,11 @@ namespace Business.ConCrete
             return _categoryDal.GetAll();
 
         }
+
+        //Select * from Categories where CategoryId = 3 gibi
+        public Category GetById(int categoryId)
+        {
+            return _categoryDal.Get(c => c.CategoryId == categoryId);
+        }
     }
 }
