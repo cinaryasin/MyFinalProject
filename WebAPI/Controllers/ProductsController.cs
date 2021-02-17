@@ -27,6 +27,7 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
+            //Dependency Resolvers  bağımlılık çözümleyici
             //Dependency chain Bağımlılık servisi var yanlış kod
             //IProductService productService = new ProductManager(new EfProductDal());
 

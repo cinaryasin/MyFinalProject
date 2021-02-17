@@ -32,9 +32,9 @@ namespace WebAPI
             //Autofac, Ninject, CastleWindsor, StructureMap, LightInject, DryInject --> IoC yokken kullanýlan
             services.AddControllers();
 
-            //bana arka planda bir referans oluþtur
-            services.AddSingleton<IProductService,ProductManager>();
-            services.AddSingleton<IProductDal, EfProductDal>();
+            //bana arka planda bir referans oluþtur Buranýn daha kullanýþlýsýný business-dependecyResolvers-autofac-autofacbussinessmodule clasýnda yaptýk
+            //services.AddSingleton<IProductService,ProductManager>();
+            //services.AddSingleton<IProductDal, EfProductDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
