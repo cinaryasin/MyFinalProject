@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -30,7 +31,7 @@ namespace WebAPI.Controllers
             //Dependency Resolvers  bağımlılık çözümleyici
             //Dependency chain Bağımlılık servisi var yanlış kod
             //IProductService productService = new ProductManager(new EfProductDal());
-
+           //Thread.Sleep(500);
 
             var result = _productService.GetAll();
             if (result.Success)
@@ -64,6 +65,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
             
         }
+        [HttpGet("getbycategory")]
+        public IActionResult GetByCategory(int categoryId)
+        {
+            var result = _productService.GetAllByCategoryId(categoryId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         //mesaj için kullanılan komut
         //public string Get()
         //{
@@ -73,5 +85,7 @@ namespace WebAPI.Controllers
         //    return result.Message;
 
         //}
+
+
     }
 }
