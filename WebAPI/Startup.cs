@@ -40,7 +40,7 @@ namespace WebAPI
             //Autofac, Ninject, CastleWindsor, StructureMap, LightInject, DryInject --> IoC yokken kullanýlan
             services.AddControllers();
             services.AddCors();
-            
+
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -58,8 +58,8 @@ namespace WebAPI
                     };
                 });
 
-            services.AddDependencyResolvers(new ICoreModule[] {new CoreModule() });
-            
+            services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
+
             //bana arka planda bir referans oluþtur Buranýn daha kullanýþlýsýný business-dependecyResolvers-autofac-autofacbussinessmodule clasýnda yaptýk
             //services.AddSingleton<IProductService,ProductManager>();
             //services.AddSingleton<IProductDal, EfProductDal>();
@@ -72,7 +72,8 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+            app.ConfigureCustomExceptionMiddleware();
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();
